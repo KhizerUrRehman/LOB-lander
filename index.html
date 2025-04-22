@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>League of Basketball</title>
+    <title>League of Basketball (LOB)</title>
+
+    <!-- Favicon for the browser tab -->
+    <link rel="icon" type="image/png" href="LOB.png">
+
+    <!-- Styles -->
     <style>
-        /* Global styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -16,25 +20,23 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
             flex-direction: column;
+            text-align: center;
         }
 
-        /* Header styling */
         h1 {
             font-size: 3rem;
-            margin-bottom: 1rem;
             font-weight: bold;
-            color: #0288D1; /* Slightly darker blue */
+            color: #0288D1;
+            margin-bottom: 0.5rem;
         }
 
-        /* Subtext styling */
-        p {
+        h2 {
             font-size: 1.5rem;
             color: #0288D1;
+            margin-bottom: 2rem;
         }
 
-        /* Button styling */
         .btn {
             background-color: #0288D1;
             color: white;
@@ -51,20 +53,55 @@
             background-color: #0277BD;
         }
 
-        /* Decorative Box */
+        .logo {
+            width: 150px;
+            margin-bottom: 1.5rem;
+        }
+
         .content-box {
             background-color: white;
             padding: 50px;
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #0288D1;
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+
+        .social-links a:hover {
+            color: #0277BD;
         }
     </style>
 </head>
 <body>
     <div class="content-box">
-        <h1>Welcome to League of Basketball!</h1>
-        <p>We are currently working on this page. Please check back soon!</p>
-        <a href="#" class="btn">Stay Tuned</a>
+        <!-- Logo -->
+        <img src="LOB.png" alt="League of Basketball Logo" class="logo">
+        
+        <!-- Title and Description -->
+        <h1>League of Basketball (LOB)</h1>
+        <h2>Bringing Professional Basketball to Pakistan</h2>
+
+        <!-- Organization Info -->
+        <p>League of Basketball (LOB) is an organization formed by the collective efforts of basketball players all over Karachi. Our mission is to establish a professional standard league for the first time in Pakistan. In addition to our flagship league, we also run WLOB for women and LOB Varsity for younger students. LOB is a non-profit organization, and our sole purpose is to enhance the basketball scene in Pakistan.</p>
+
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/league.of.basketball/" target="_blank" class="btn">Follow us on Instagram</a>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/league.of.basketball/" target="_blank">Instagram</a>
+        </div>
     </div>
 </body>
 </html>
