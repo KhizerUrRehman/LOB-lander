@@ -23,7 +23,7 @@
       * {
         box-sizing: border-box;
       }
-      
+
       html,
       body {
         margin: 0;
@@ -291,9 +291,9 @@
         <div class="divider" role="separator" aria-hidden="true"></div>
 
         <p>
-          To request account deletion for your League of Basketball (LOB) account, 
-          please fill out the form below. We will process your request and confirm 
-          the deletion within 48 hours.
+          To request account deletion for your League of Basketball (LOB)
+          account, please fill out the form below. We will process your request
+          and confirm the deletion within 48 hours.
         </p>
 
         <form class="form" id="deletionForm">
@@ -322,7 +322,9 @@
           </div>
 
           <div class="form-group">
-            <label for="description" class="form-label">Reason for Deletion (Optional)</label>
+            <label for="description" class="form-label"
+              >Reason for Deletion (Optional)</label
+            >
             <textarea
               id="description"
               name="description"
@@ -351,41 +353,66 @@
 
     <script>
       // Set current year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
 
       // Handle form submission
-      document.getElementById('deletionForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission
-        
-        // Capture form data
-        const formData = {
-          name: document.getElementById('name').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          description: document.getElementById('description').value.trim(),
-          timestamp: new Date().toISOString(),
-          userAgent: navigator.userAgent
-        };
-        
-        // Log the captured data (in production, you'd send this to your server)
-        console.log('Account Deletion Request:', formData);
-        
-        // Show confirmation message
-        alert(`Thank you, ${formData.name}! Your account deletion request has been submitted. We will process your request and send a confirmation to ${formData.email} within 48 hours.`);
-        
-        // Optional: Reset form after submission
-        this.reset();
-        
-        // You can replace the above with actual form submission logic:
-        // - Send data to your backend API
-        // - Show a success page
-        // - Send confirmation email
-        // Example:
-        // fetch('/api/delete-account', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(formData)
-        // });
-      });
+      document
+        .getElementById("deletionForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent default form submission
+
+          // Capture form data
+          const formData = {
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            reason: document.getElementById("description").value.trim(),
+          };
+
+          // Send POST request to Django endpoint
+          fetch(
+            "https://lob-hub.autonomoustech.io/api/v1/account-deletion-request/",
+            {
+              method: "POST",
+              headers: { 
+                "Content-Type": "application/json",
+                "Authorization": "Token 1fc60fd792b0a3383857dd66657e5c6b25a0c973"
+              },
+              body: JSON.stringify(formData),
+            }
+          )
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Failed to submit request. Please try again.");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              alert(
+                "✅ Your account deletion request has been submitted successfully."
+              );
+              document.getElementById("deletionForm").reset();
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert(
+                "❌ There was an error submitting your request. Please try again later."
+              );
+            });
+
+          // Optional: Reset form after submission
+          this.reset();
+
+          // You can replace the above with actual form submission logic:
+          // - Send data to your backend API
+          // - Show a success page
+          // - Send confirmation email
+          // Example:
+          // fetch('/api/delete-account', {
+          //   method: 'POST',
+          //   headers: { 'Content-Type': 'application/json' },
+          //   body: JSON.stringify(formData)
+          // });
+        });
     </script>
   </body>
 </html>
