@@ -69,6 +69,21 @@
             transition: background-color 0.3s ease;
         }
 
+        .btn.download_btn{
+            background-color: transparent;
+            padding: 0;
+            width: 100%;
+        }
+        
+        .btn.download_btn:hover{
+            background-color: transparent;
+        }
+
+        .btn.download_btn img{
+            height: 60px;
+            width: 100%;
+            object-fit: contain;
+        }
         .btn:hover {
             background-color: #0277BD;
         }
@@ -136,10 +151,12 @@
         }
 
         .app-download-btns {
-            display: flex;
+            display: grid;
             gap: 10px;
             flex-wrap: wrap;
             align-items: center;
+            grid-template-columns: auto auto;
+            justify-content: center;
         }
     </style>
 </head>
@@ -153,10 +170,10 @@
         <p>League of Basketball (LOB) is an organization formed by the collective efforts of basketball players all over Karachi. Our mission is to establish a professional standard league for the first time in Pakistan. In addition to our flagship league, we also run WLOB for women and LOB Varsity for younger students. LOB is a non-profit organization, and our sole purpose is to enhance the basketball scene in Pakistan.</p>
 
         <div class="app-download-btns">
-            <a href="https://apps.apple.com/sn/app/league-of-basketball/id6749572941" target="_blank" class="btn">
+            <a href="https://apps.apple.com/sn/app/league-of-basketball/id6749572941" target="_blank" class="btn download_btn">
                 <img src="./images/app-store-icon.png" alt="Download ios app"/>
             </a>
-            <a href="https://pub-9d9e465f26eb4310b53d67cf931fe0cf.r2.dev/lob.apk" target="_blank" class="btn">
+            <a href="https://pub-9d9e465f26eb4310b53d67cf931fe0cf.r2.dev/lob.apk" target="_blank" class="btn download_btn">
                 <img src="./images/play-store-icon.png" alt="Download android app"/>
             </a>
         </div>
